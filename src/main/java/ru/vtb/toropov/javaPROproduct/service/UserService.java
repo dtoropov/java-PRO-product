@@ -17,10 +17,6 @@ public class UserService {
 
   private UserRepository userRepository;
 
-  public UserRepository getUserRepository() {
-    return userRepository;
-  }
-
   @Autowired
   public void setUserRepository(UserRepository userRepository) {
     this.userRepository = userRepository;

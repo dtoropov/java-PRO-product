@@ -15,10 +15,6 @@ public class ProductService {
 
   private ProductRepository productRepository;
 
-  public ProductRepository getProductRepository() {
-    return productRepository;
-  }
-
   @Autowired
   public void setProductRepository(
       ProductRepository productRepository) {
