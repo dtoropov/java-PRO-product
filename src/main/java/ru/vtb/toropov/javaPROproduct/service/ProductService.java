@@ -1,7 +1,7 @@
 package ru.vtb.toropov.javaPROproduct.service;
 
-import ru.vtb.toropov.javaPROproduct.model.Product;
-import ru.vtb.toropov.javaPROproduct.repository.ProductRepository;
+import ru.vtb.toropov.javaPROproduct.integration.ProductIntegration;
+import ru.vtb.toropov.javaPROproduct.model.UserProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +13,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
 
-  private ProductRepository productRepository;
+  private ProductIntegration productIntegration;
 
   @Autowired
-  public void setProductRepository(
-      ProductRepository productRepository) {
-    this.productRepository = productRepository;
+  public void setProductIntegration(
+      ProductIntegration productIntegration) {
+    this.productIntegration = productIntegration;
   }
 
-  public Product getProductById(Long id) {
-    return productRepository.getProductById(id);
+  public UserProduct[] getProductById(Long id) {
+    return productIntegration.getProductById(id);
+  }
+
+  public UserProduct[]  getProductByUserId(Long id) {
+    return productIntegration.getProductByUserId(id);
+  }
+
+  public UserProduct[] getProductAll() {
+    return productIntegration.getProductAll();
   }
 
 }

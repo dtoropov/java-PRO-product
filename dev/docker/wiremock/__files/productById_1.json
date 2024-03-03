@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "userName": "Иванов",
+    "productId": 1,
+    "productName": "Кредиты",
+    "account": "40817810099910004312",
+    "balance": 1000000
+  },
+  {
+    "id": 4,
+    "userId": 2,
+    "userName": "Петров",
+    "productId": 1,
+    "productName": "Кредиты",
+    "account": "40817810099910004311",
+    "balance": 1000000
+  },
+  {
+    "id": 5,
+    "userId": 3,
+    "userName": "Петров",
+    "productId": 1,
+    "productName": "Кредиты",
+    "account": "40817810099910004310",
+    "balance": 4000000
+  }
+]
