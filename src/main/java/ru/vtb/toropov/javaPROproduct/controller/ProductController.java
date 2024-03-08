@@ -28,7 +28,7 @@ public class ProductController {
     UserProduct[] arrayUserProduct = productService.getProductById(id);
     if (arrayUserProduct.length==0)
     {
-      throw  new ResourceNotFound("Продукт с id =" +id +" не найден");
+      throw new ResourceNotFound("RESOURCE_NOT_FOUND", "Продукт с id =" +id +" не найден");
     }
     return productService.getProductById(id);
   }
