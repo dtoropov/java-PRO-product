@@ -1,12 +1,25 @@
 package ru.vtb.toropov.javaPROproduct.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * User.
  *
  * @author DToropov
  */
+@Entity
+@Table(name = "user", schema = "java_pro")
 public class User {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private Long id;
+  @Column(name = "name")
   private String name;
 
   public Long getId() {
@@ -30,4 +43,6 @@ public class User {
     this.name = name;
   }
 
+  public User() {
+  }
 }

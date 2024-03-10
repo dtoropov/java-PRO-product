@@ -1,5 +1,13 @@
 package ru.vtb.toropov.javaPROproduct.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import java.math.BigDecimal;
 
 /**
@@ -7,19 +15,26 @@ import java.math.BigDecimal;
  *
  * @author DToropov
  */
+@Entity
+@Table(name="userproduct", schema = "java_pro")
 public class UserProduct {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="id")
   private Long id;
-  private Long userId;
 
-  private String userName;
+  @ManyToOne
+  @JoinColumn(name ="userid")
+  private User user;
+  @ManyToOne
+  @JoinColumn(name ="productid")
+  private Product product;
 
-  private Long productId;
-
-  private String productName;
-
+  @Column(name="account")
   private String account;
 
+  @Column(name="balance")
   private BigDecimal balance;
 
   public Long getId() {
@@ -30,36 +45,20 @@ public class UserProduct {
     this.id = id;
   }
 
-  public Long getUserId() {
-    return userId;
+  public User getUser() {
+    return user;
   }
 
-  public void setUserId(Long userId) {
-    this.userId = userId;
+  public void setUser(User user) {
+    this.user = user;
   }
 
-  public String getUserName() {
-    return userName;
+  public Product getProduct() {
+    return product;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  public Long getProductId() {
-    return productId;
-  }
-
-  public void setProductId(Long productId) {
-    this.productId = productId;
-  }
-
-  public String getProductName() {
-    return productName;
-  }
-
-  public void setProductName(String productName) {
-    this.productName = productName;
+  public void setProduct(Product product) {
+    this.product = product;
   }
 
   public String getAccount() {
@@ -78,14 +77,14 @@ public class UserProduct {
     this.balance = balance;
   }
 
-  public UserProduct(Long id, Long userId, String userName, Long productId, String productName,
-      String account, BigDecimal balance) {
+  public UserProduct(Long id, User user, Product product, String account, BigDecimal balance) {
     this.id = id;
-    this.userId = userId;
-    this.userName = userName;
-    this.productId = productId;
-    this.productName = productName;
+    this.user = user;
+    this.product = product;
     this.account = account;
     this.balance = balance;
+  }
+
+  public UserProduct() {
   }
 }

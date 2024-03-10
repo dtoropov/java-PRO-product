@@ -22,10 +22,11 @@ public class UserProductService {
     this.userProductRepository = userProductRepository;
   }
 
-  public List<UserProduct> getProductByUserId(Long userId) {
-    return userProductRepository.getProductByUserId(userId);
+  public List<UserProduct> findByUserId(Long userId) {
+    return userProductRepository.findByUserId(userId);
   }
-  public List<UserProduct> getProductAll() {
-    return userProductRepository.getProductAll();
+  public List<UserProduct> findAll() {
+
+    return userProductRepository.findAll();
   }
 }

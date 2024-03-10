@@ -2,6 +2,7 @@ package ru.vtb.toropov.javaPROproduct.service;
 
 import ru.vtb.toropov.javaPROproduct.model.Product;
 import ru.vtb.toropov.javaPROproduct.repository.ProductRepository;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,8 @@ public class ProductService {
     this.productRepository = productRepository;
   }
 
-  public Product getProductById(Long id) {
-    return productRepository.getProductById(id);
+  public Optional<Product> findById(Long id) {
+    return productRepository.findById(id);
   }
 
 }
