@@ -1,0 +1,11 @@
+server:
+  port: 8290
+  servlet:
+    context-path: /api/v1
+
+integrations:
+  product:
+    client:
+      url: http://localhost:8189/api/v1/
+      connect-timeout: 1s
+      read-timeout: 30s
